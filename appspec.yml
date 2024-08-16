@@ -1,0 +1,43 @@
+version: 0.0
+os: linux
+files:
+  - source: output/
+    destination: /var/www/appmanager/
+    overwrite: yes
+  - source: deploy-scripts/webapi.service
+    destination: /etc/systemd/system
+    overwrite: yes
+  - source: deploy-scripts/
+    destination: /var/www/appmanager/deploy-scripts
+    overwrite: yes
+permissions:
+  - object: /var/www/appmanager
+    pattern: "**"
+    owner: root
+    group: root
+    mode: 777
+    type:
+      - file
+      - directory
+  - object: deploy-scripts/
+    pattern: "**"
+    owner: root
+    group: root
+    mode: 777
+    type:
+      - file
+      - directory
+hooks:
+  BeforeInstall:
+    - location: deploy-scripts/before_install.sh
+      timeout: 2400
+      runas: root
+  ApplicationStop:
+    - location: deploy-scripts/stop_app.sh
+      timeout: 300
+      runas: root
+  ApplicationStart:
+    - location: deploy-scripts/start_app.sh
+      timeout: 300
+      runas: root
+

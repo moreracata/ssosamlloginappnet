@@ -1,0 +1,31 @@
+version: 0.2
+
+phases:
+  install:
+    runtime-versions:
+      dotnet: latest
+      nodejs: 20.13.1
+    commands:
+      - sudo npm install -g typescript
+  pre_build:
+    commands:
+      - echo Pre-build phase started...
+      - echo Installing frontend dependencies...
+      - sudo npm install --prefix test-app/test-app.Client --legacy-peer-deps
+      - echo Installing backend dependencies...
+      - dotnet restore test-app/test-app.sln
+  build:
+    commands:
+      - echo Build phase started...
+      - echo Building solution...
+      - dotnet build test-app/test-app.sln -c Release
+  post_build:
+    commands:
+      - echo Post-build phase started...
+      - echo Publishing app...
+      - dotnet publish test-app/test-app.sln -c Release -o output
+artifacts:
+  files:
+    - output/**/*
+    - appspec.yml
+    -  deploy-scripts/**/*   

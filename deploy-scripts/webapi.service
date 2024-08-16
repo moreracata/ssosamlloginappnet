@@ -1,0 +1,13 @@
+[Unit]
+Description=ASP.NET Core Application
+
+[Service]
+ExecStart=/usr/bin/dotnet /var/www/appmanager/appmanager.dll --urls http://*:5001
+Restart=always
+RestartSec=10
+SyslogIdentifier=dotnet-app
+User=root
+Environment=ASPNETCORE_ENVIRONMENT=Development
+
+[Install]
+WantedBy=multi-user.target
