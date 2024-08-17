@@ -2,16 +2,16 @@ version: 0.0
 os: linux
 files:
   - source: output/
-    destination: /var/www/appmanager/
+    destination: /var/www/test-app/
     overwrite: yes
   - source: deploy-scripts/webapi.service
     destination: /etc/systemd/system
     overwrite: yes
   - source: deploy-scripts/
-    destination: /var/www/appmanager/deploy-scripts
+    destination: /var/www/test-app/deploy-scripts
     overwrite: yes
 permissions:
-  - object: /var/www/appmanager
+  - object: /var/www/test-app
     pattern: "**"
     owner: root
     group: root

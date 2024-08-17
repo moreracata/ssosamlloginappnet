@@ -21,7 +21,7 @@ sudo echo "Installing Nginx"
 sudo apt update 
 sudo apt install nginx  -y
 
-sudo chmod -R 777 "/var/www/appmanager/deploy-scripts"
+sudo chmod -R 777 "/var/www/test-app/deploy-scripts"
 
 sudo echo "Setting Nginx Configuration"
 
@@ -31,8 +31,8 @@ sudo chmod -R 777 "/etc/nginx/sites-available/"
 sudo mkdir -p "/etc/nginx/sites-enabled/"
 sudo chmod -R 777 "/etc/nginx/sites-enabled/"
 
-sudo mv -f "/var/www/appmanager/deploy-scripts/appmanager" "/etc/nginx/sites-available/appmanager"
-sudo ln -sf "/etc/nginx/sites-available/appmanager" "/etc/nginx/sites-enabled/appmanager"
+sudo mv -f "/var/www/test-app/deploy-scripts/test-app" "/etc/nginx/sites-available/test-app"
+sudo ln -sf "/etc/nginx/sites-available/test-app" "/etc/nginx/sites-enabled/test-app"
 
 sudo mkdir -p "/var/www/"
 sudo chmod -R 777 "/var/www/"
