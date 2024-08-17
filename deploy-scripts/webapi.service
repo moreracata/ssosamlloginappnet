@@ -2,7 +2,7 @@
 Description=ASP.NET Core Application
 
 [Service]
-ExecStart=/usr/bin/dotnet /var/www/test-app/test-app.dll --urls http://*:5001
+ExecStart=/usr/bin/dotnet /var/www/test-app/test-app.Server.dll --urls http://*:5001
 Restart=always
 RestartSec=10
 SyslogIdentifier=dotnet-app
