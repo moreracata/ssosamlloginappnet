@@ -25,7 +25,7 @@ function App() {
 
     async function requestLogin() {
         console.log("Requesting login")
-        const response = await fetch('login');
+        const response = await fetch('/api/login');
         const data = await response.json();
        console.log(data)
     }

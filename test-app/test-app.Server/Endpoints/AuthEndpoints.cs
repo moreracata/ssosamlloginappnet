@@ -7,7 +7,7 @@ namespace test_app.Server.Endpoints
     {
         public static void MapAuthEndpoints(this IEndpointRouteBuilder routes)
         {
-            routes.MapGet("/login", (SamlSettings samlSettings) =>
+            routes.MapGet("api/login", (SamlSettings samlSettings) =>
             {
                 var samlEndpoint = "http://saml-provider-that-we-use.com/login/";
 
