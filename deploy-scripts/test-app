@@ -2,7 +2,7 @@ server {
     listen 80;
     server_name ec2-3-81-137-221.compute-1.amazonaws.com;
 
-    root /var/www/appmanager/wwwroot; 
+    root /var/www/test-app/wwwroot; 
     index index.html;
 
     # Serve static files
